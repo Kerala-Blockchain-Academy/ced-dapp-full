@@ -1,5 +1,10 @@
 let contract;
 let abi;
+let message = ethers.utils.hexlify(
+  ethers.utils.toUtf8Bytes(
+    "Welcome to Certificate DApp. Kindly sign this message to proceed. This procedure does not require any ETH to process."
+  )
+);
 
 window.onload = async () => {
   const res = await fetch("/api/abi");
@@ -9,26 +14,43 @@ window.onload = async () => {
   console.log(contract);
 };
 
-const connectToMetaMask = async () => {
+
+/* Function to Register */
+const register = async () => {
   let accounts = await window.ethereum.request({
     method: "eth_requestAccounts",
   });
+
   let sign = await window.ethereum.request({
     method: "personal_sign",
-    params: [
-      "0x57656c636f6d6520746f20436572746966696361746520444170702e204b696e646c79207369676e2074686973206d65737361676520746f206c6f6720696e2e20546869732070726f63656475726520646f6573206e6f74207265717569726520616e792045544820746f2070726f636573732e",
-      accounts[0],
-    ],
+    params: [message, accounts[0]],
   });
-  console.log(sign);
 
-  if (sign === "<paste-sign-here>") {
+  console.log(sign);
+  sessionStorage.setItem("dapp-sign", sign);
+
+  alert("Successfully registered!!");
+};
+
+/* Function to Login */
+const login = async () => {
+  let accounts = await window.ethereum.request({
+    method: "eth_requestAccounts",
+  });
+
+  let sign = await window.ethereum.request({
+    method: "personal_sign",
+    params: [message, accounts[0]],
+  });
+
+  if (sign === sessionStorage.getItem("dapp-sign")) {
     window.location.href = "/issue";
   } else {
-    alert(`Account: ${accounts[0]} is not authorized!`);
+    alert("You're not authorized!");
   }
 };
 
+/* Function to Issue */
 const issueCertificate = async () => {
   let accounts = await window.ethereum.request({
     method: "eth_requestAccounts",
@@ -61,11 +83,28 @@ const issueCertificate = async () => {
     ],
   });
 
-  let trxReceipt = await window.ethereum.request({
-    method: "eth_getTransactionReceipt",
-    params: [trx],
-  });
+  waitForReceipt(trx, certificateID);
+};
+
+/* Auxilliary Function to wait for Receipt */
+async function waitForReceipt(trx, id) {
+  let trxReceipt = null;
+
+  while (!trxReceipt) {
+    try {
+      trxReceipt = await window.ethereum.request({
+        method: "eth_getTransactionReceipt",
+        params: [trx],
+      });
+
+      if (!trxReceipt) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    } catch (error) {
+      console.error("Error fetching transaction receipt:", error);
+    }
+  }
 
   console.log("Receipt: ", trxReceipt);
-  alert(`Certificate is issued for ${certificateID}!`);
-};
+  alert(`Certificate is issued for ${id}!`);
+}

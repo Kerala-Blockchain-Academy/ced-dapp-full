@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
     <script src="/scripts/metamask.js"></script>
   </head>
 
@@ -24,13 +28,10 @@
         </a>
       </div>
       <div class="navbar-end">
-        <button
-          class="button is-link is-large"
-          id="loginInfo"
-          onclick="connectToMetaMask()"
-        >
-          Login
+        <button class="button is-link is-large" onclick="register()">
+          Register
         </button>
+        <button class="button is-link is-large" onclick="login()">Login</button>
       </div>
     </nav>
     <section class="section">
