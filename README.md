@@ -42,16 +42,16 @@ Deploy the contract
 npm run deploy:sepolia
 ```
 
-Copy '.env' to api
+Copy '.env' to app
 
 ```bash
-cp .env ../api/
+cp .env ../app/
 ```
 
-Install dependencies for api
+Install dependencies for app
 
 ```bash
-cd .. && cd api/
+cd .. && cd app/
 npm install
 ```
 

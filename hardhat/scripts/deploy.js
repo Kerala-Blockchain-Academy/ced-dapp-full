@@ -20,7 +20,7 @@ async function main() {
   console.log(`${details.deployer} deployed ${details.contract}`);
 
   writeFile(
-    "../api/src/artifacts/details.json",
+    "../app/src/artifacts/details.json",
     JSON.stringify(details, null, 2),
     (err) => {
       if (err) {
