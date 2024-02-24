@@ -4,13 +4,13 @@ Full DApp example for CED.
 
 ## 🛠 Built With
 
-[![Node.js](https://img.shields.io/badge/node.js-olivedrab?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
-[![Express](https://img.shields.io/badge/express-olivedrab?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![EJS](https://img.shields.io/badge/ejs-orange?style=for-the-badge&logo=javascript&logoColor=white)](https://ejs.co/)
-[![Ethers](https://img.shields.io/badge/ethers-darkslategray?style=for-the-badge&logo=ethereum&logoColor=white)](https://docs.ethers.org/v6/)
-[![MetaMask](https://img.shields.io/badge/metamask-darkslategray?style=for-the-badge&logo=ethereum&logoColor=white)](https://metamask.io/)
-[![Hardhat](https://img.shields.io/badge/hardhat-darkslategray?style=for-the-badge&logo=ethereum&logoColor=white)](https://hardhat.org/)
-[![Solidity](https://img.shields.io/badge/solidity-sienna?style=for-the-badge&logo=solidity&logoColor=white)](https://soliditylang.org/)
+[![Node.js Badge](https://img.shields.io/badge/Node.js-393?logo=nodedotjs&logoColor=fff&style=for-the-badge)](https://nodejs.org/en/)
+[![Express Badge](https://img.shields.io/badge/Express-000?logo=express&logoColor=fff&style=for-the-badge)](https://expressjs.com/)
+[![EJS Badge](https://img.shields.io/badge/EJS-B4CA65?logo=ejs&logoColor=fff&style=for-the-badge)](https://ejs.co/)
+[![Ethers Badge](https://img.shields.io/badge/Ethers-3C3C3D?logo=ethereum&logoColor=fff&style=for-the-badge)](https://docs.ethers.org/v6/)
+[![MetaMask Badge](https://img.shields.io/badge/MetaMask-3C3C3D?logo=ethereum&logoColor=fff&style=for-the-badge)](https://metamask.io/)
+[![Hardhat Badge](https://img.shields.io/badge/Hardhat-3C3C3D?logo=ethereum&logoColor=fff&style=for-the-badge)](https://hardhat.org/)
+[![Solidity Badge](https://img.shields.io/badge/Solidity-363636?logo=solidity&logoColor=fff&style=for-the-badge)](https://soliditylang.org/)
 
 ## ⚙️ Run Locally
 
@@ -21,10 +21,9 @@ git clone https://github.com/Kerala-Blockchain-Academy/ced-dapp-full.git
 cd ced-dapp-full
 ```
 
-Install dependencies for hardhat
+Install dependencies
 
 ```bash
-cd hardhat
 npm install
 ```
 
@@ -40,19 +39,6 @@ Deploy the contract
 
 ```bash
 npm run deploy:sepolia
-```
-
-Copy '.env' to app
-
-```bash
-cp .env ../app/
-```
-
-Install dependencies for app
-
-```bash
-cd .. && cd app/
-npm install
 ```
 
 Start the application
