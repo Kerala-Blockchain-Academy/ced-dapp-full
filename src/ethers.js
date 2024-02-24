@@ -1,6 +1,6 @@
 import { Contract, JsonRpcProvider, Wallet } from "ethers";
-import details from "./artifacts/details.json" assert { type: "json" };
-import Cert from "./artifacts/contracts/Cert.sol/Cert.json" assert { type: "json" };
+import details from "../artifacts/details.json" assert { type: "json" };
+import Cert from "../artifacts/contracts/Cert.sol/Cert.json" assert { type: "json" };
 
 let instance;
 

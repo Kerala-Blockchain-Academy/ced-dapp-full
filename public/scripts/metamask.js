@@ -2,8 +2,8 @@ let contract;
 let abi;
 let message = ethers.utils.hexlify(
   ethers.utils.toUtf8Bytes(
-    "Welcome to Certificate DApp. Kindly sign this message to proceed. This procedure does not require any ETH to process."
-  )
+    "Welcome to Certificate DApp. Kindly sign this message to proceed. This procedure does not require any ETH to process.",
+  ),
 );
 
 window.onload = async () => {
@@ -13,7 +13,6 @@ window.onload = async () => {
   abi = json.abi;
   console.log(contract);
 };
-
 
 /* Function to Register */
 const register = async () => {
