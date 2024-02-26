@@ -1,7 +1,7 @@
 let contract;
 let abi;
-let message = ethers.utils.hexlify(
-  ethers.utils.toUtf8Bytes(
+let message = ethers.hexlify(
+  ethers.toUtf8Bytes(
     "Welcome to Certificate DApp. Kindly sign this message to proceed. This procedure does not require any ETH to process.",
   ),
 );
@@ -55,7 +55,7 @@ const issueCertificate = async () => {
     method: "eth_requestAccounts",
   });
 
-  let iface = new ethers.utils.Interface(abi);
+  let iface = new ethers.Interface(abi);
 
   let certificateID = document.getElementById("certificateID").value;
   let candidateName = document.getElementById("candidateName").value;
